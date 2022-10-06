@@ -1,5 +1,5 @@
 # Pemrograman-web
 # Data diri praktikan
-Nama: [Ade Cahyaning Palupi]
+Nama: Ade Cahyaning Palupi
 
-NIM: [105220001]
+NIM: 105220001
