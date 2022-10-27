@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Portofolio</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+	<div class="bar">
+		<div>HOME</div>
+		<div>CONTACT</div>
+		<div>SETTING</div>
+	</div>
+
+	<div class="header">
+		<h1>Hi! I am Ade</h1>
+		<p>Nama saya Ade Cahyaning Palupi, mahasiswa semester 5 di Universitas Pertamina program studi Ilmu Komputer</p>
+	</div>
+
+	<h2>Biodata</h2><br>
+	<div class="wrapper">
+		<img src="https://i.pinimg.com/736x/5b/06/32/5b063215d32ed854d53422b26ea76965.jpg" alt="foto" width="180px" height="200px">
+	
+	<table>
+		<tr><td colspan="2">Ade Cahyaning Palupi</td></tr>
+		<tr>
+			<td>Lahir</td>
+			<td>:26 Juli 2002</td>
+		</tr>
+		<tr>
+			<td>Alamat</td>
+			<td>: Gambiran, Banyuwangi</td>
+		</tr>
+		<tr>
+			<td>Hobi</td>
+			<td>:Makan, Tidur</td>
+		</tr>
+	</table>
+	</div>
+	
+<div class="biodata">
+	<h3>Keahlian</h3>
+	<p>
+		Pada praktikum ini, saya mempelajari bagaimana pengaplikasian tag semantic pada html. Semantic yang saya aplikasikan antara lain:
+	</p>
+	<ul>
+		<li><b>tag p</b>: untuk paragraf</li>
+		<li><b>tag h1, h2, h3</b>: untuk header. h1 artinya header1, dan seterusnya. Semakin meningkat angka header, maka tulisan akan semakin kecil</li>
+		<li><b>tag img</b>: untuk menampilkan gambar. menggunakan beberapa atribut, yaitu:
+			<ul>
+				<li><b>src (source)</b>: sumber dari gambar yang akan ditampilkan.</li>
+				<li><b>atribut alt (alternatif)</b>:alternatif text yang akan ditampilkan jika gambar dari src tidak berhasil dimuat.</li>
+			</ul> 
+		</li>
+		<li><b>Form</b>: untuk membuat form yang atraktif. dapat menerima input berupa email dan atau pesan. Tag yang digunakan:</li>
+		<ul>
+			<li><b>tag form</b></li>
+			<li><b>tag label</b>: untuk melabeli kolom inputan</li>
+			<li><b>input</b>: untuk mengambil input dari user. Dapat ditambah atribut 'type' untuk mengetahui bentuk input yang harus dimasukkan (seperti type email, type submit)</li>
+			<li><b>textarea</b>: untuk mengambil input dengan bentuk form text yang dimasukkan banyak</li>
+		</ul>
+	</ul>
+</div>
+
+	<section>
+			<h2>Berikan komentar</h2>
+			<form action="">
+				<label for="email">Email</label><br>
+				<input type="email" tabindex="0"><br><br>
+				<!-- tabindex=0 artinya jika pencet tab akan menuju ke email. =0 artinya saat pencet tab pertama -->
+				<label for="message">Komentar</label><br>
+				<textarea name="message" id="message" cols="30" rows="10"></textarea> <br>
+				<input type="submit" value="submit">
+			</form>
+		</section>
+</body>
+</html>
