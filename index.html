@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Rock Paper Scissors</title>
+</head>
+<body>
+    <header>
+        <h1>Rock Paper Scissors</h1>
+    </header>
+
+    <div class="score">
+        <div id="user-label" class="badge">user</div>
+        <div id="comp-label" class="badge">computer</div>
+        <span id="user-score">0</span>:<span id="comp-score">0</span>
+    </div>
+
+    <div class="result">
+        <p>Paper cover rock. You Win!</p>
+    </div>
+
+    <div class="choices">
+        <div class="choice">
+            <img src="https://github.com/adecahyaaa/Pemrograman-Web-V/blob/main/batu-removebg-preview.png?raw=true" alt="rock" width="130px">
+        </div>
+        <div class="choice">
+            <img src="https://github.com/adecahyaaa/Pemrograman-Web-V/blob/main/paper-removebg-preview.png?raw=true" alt="paper" width="130px">
+        </div>
+        <div class="choice">
+            <img src="https://github.com/adecahyaaa/Pemrograman-Web-V/blob/main/scissors-removebg-preview.png?raw=true" alt="scissors" width="130px">
+        </div>
+    </div>
+    
+    <p id="action-message">Make Your Move</p>
+</body>
+</html>
+
+<style>
+    body{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        background-color: #2c3e23;
+    }
+
+    header{
+        background-color: #c3d6b9;
+        text-align: center;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    }
+
+    .score{
+        border: 3px solid white;
+        margin: 20px auto;
+        width: 200px;
+        color: rgb(225, 236, 210);
+        border-radius: 4px;
+        font-size: 46px;
+        text-align: center;
+        padding: 15px 20px;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        position: relative;
+    }
+
+    .badge{
+        background-color: #db0f27;
+        color: #c4c9c2;
+        font-size: 14px;
+        padding: 2px 10px;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    }
+
+    #user-label{
+        position: absolute;
+        top: 30px;
+        left: -25px;
+
+    }
+
+    #comp-label{
+        position: absolute;
+        top: 30px;
+        right: -39px;
+    }
+
+    .result{
+        font-size: 40px;
+        color: #e7f1dd;
+    }
+
+    .result > p{
+        text-align: center;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    }
+
+    .choices{
+        text-align: center;
+    }
+    
+    .choice{
+        display: inline-block;
+        border: 4px solid #c3d6b9;
+        border-radius: 50%;
+        padding: 10px;
+        margin: 0 20px;
+    }
+
+    .choice:hover{
+        cursor: pointer;
+        background: #c3d6b9;
+    }
+
+    #action-message{
+        text-align: center;
+        color: #c3d6b9;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        font-size: 25px;
+        margin-top: 20px;
+    }
+
+    .green-glow{
+        border: 4px solid #4dcc7d;
+        box-shadow: 0 0 10px #31b43a;
+    }
+
+    .red-glow{
+        border: 4px solid #fc121b;
+        box-shadow: 0 0 10px #d01115;
+    }
+
+    .gray-glow{
+        border: 4px solid #464647;
+        box-shadow: 0 0 10px #25292b;
+    }
+</style>
+
+<script>
+    let userScore = 0;
+    let computerScore = 0;
+    const userScore_span = document.getElementById("user-score");
+    const computerScore_span = document.getElementById("computer-score");
+    const scoreBoard_div = document.querySelector(".score");
+    const result_p = document.querySelector(".result > p");
+    const rock_div = document.querySelector("r");
+    const paper_div = document.querySelector("p");
+    const scissors_div = document.querySelector("s");
+
+    function getComputerChoice() {
+        const choices = ['r', 'p', 's'];
+        const randomNumber = Math.floor(Math.random() * 3);
+        return choices[randomNumber];
+    }
+
+    function convert(letter) {
+        if(letter === "r") return "Rock";
+        if(letter === "p") return "Paper";
+        return "Scissors";
+    }
+    function win(userChoice, computerChoice) {
+        const smallUserWord = "user".fontsize(3).sub();
+        const smallCompWord = "comp".fontsize(3).sub();
+        const userChoice_div = document.getElementById(userChoice);
+        userScore++;
+        userScore_span.innerHTML = userScore;
+        computerScore_span.innerHTML = computerScore;
+        result_p.innerHTML = '${convert(userChoice)} $ beats ${convert(computerChoice)}.  You win!';
+        document.getElementById(userChoice).classList.add('green-glow');
+        setTimeout(() => userChoice_div.classList.remove('green-glow') , 300);
+    }
+
+    function lose(userChoice, computerChoice) {
+        const smallUserWord = "user".fontsize(3).sub();
+        const smallCompWord = "comp".fontsize(3).sub();
+        const userChoice_div = document.getElementById(userChoice);
+        computerScore++;
+        userScore_span.innerHTML = userScore;
+        computerScore_span.innerHTML = computerScore;
+        result_p.innerHTML = '${convert(userChoice)} $ loses to ${convert(computerChoice)}.  You lose!';
+        document.getElementById(userChoice).classList.add('red-glow');
+        setTimeout(() => userChoice_div.classList.remove('red-glow'), 300);
+    }
+
+    function draw(userChoice, computerChoice) {
+        const smallUserWord = "user".fontsize(3).sub();
+        const smallCompWord = "comp".fontsize(3).sub();
+        const userChoice_div = document.getElementById(userChoice);
+        result_p.innerHTML = '${convert(userChoice)} $ equals ${convert(computerChoice)}.  Its Drawwww!';
+        document.getElementById(userChoice).classList.add('gray-glow');
+        setTimeout(() => userChoice_div.classList.remove('gray-glow'), 300);
+    }
+
+
+    function game(userChoice) {
+        const ComputerChoice = getComputerChoice();
+        switch(userChoice + ComputerChoice){
+            case "rp":
+            case "pr":
+            case "sp":
+                win(userChoice, ComputerChoice);
+                break;
+            case "rp":
+            case "ps":
+            case "sr":
+                lose(userChoice, computerChoice);
+                break;
+            case "rr":
+            case "pp":
+            case "ss":
+                draw(userChoice, computerChoice);
+                break;
+        }
+    }
+
+    function main() {
+        rock_div.addEventListener('click', function() {
+            game("r");
+        })
+
+        paper_div.addEventListener('click', function(){
+            game("p");
+        })
+        
+        scissors_div.addEventListener('click', function(){
+            game("s");
+        })
+    }
+
+
+
+</script>
